@@ -7,6 +7,7 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.web.session.SessionInformationExpiredStrategy;
 
 import javax.sql.DataSource;
 
@@ -42,6 +43,8 @@ public class WebSecurityConfig3 extends WebSecurityConfigurerAdapter {
                 .sessionManagement()
                 //设置单个用户允许同时在线的最大会话数
                 .maximumSessions(1)
+                //当会话数达到最大数时，组织新会话建立
+                .maxSessionsPreventsLogin(true)
         ;
     }
 }
