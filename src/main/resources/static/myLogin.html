@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>登录</title>
+    <meta http-equiv="Content-Type" content="text/html;charset = utf-8">
+    <style>
+        /*some style*/
+    </style>
+</head>
+<body>
+<div class="login">
+    <h2>Acced Form</h2>
+    <div class="login-top">
+        <h1>Login Form</h1>
+        <form action="/auth/form" method="post">
+            <input type="text" name="username" placeholder="username">
+            <input type="text" name="password" placeholder="password">
+            <div style="display: flex">
+                <!--新增图片验证码的输入框-->
+                <input type="text" name="captcha" placeholder="captcha">
+                <!--图片指向获取图片验证码的api-->
+                <img src="/captcha.jpg" alt="captcha" height="50px" width="150px" style="margin-left: 20px">
+            </div>
+            <div class="forgot">
+                <a href="#">forgot Password</a>
+                <input type="submit" value="Login">
+            </div>
+        </form>
+    </div>
+    <div class="login-bottom">
+        <h3>New User &nbsp;<a href="#">Register</a>&nbsp; Here</h3>
+    </div>
+
+</div>
+
+</body>
+</html>
