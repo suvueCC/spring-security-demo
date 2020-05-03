@@ -7,7 +7,6 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.security.web.session.SessionInformationExpiredStrategy;
 
 import javax.sql.DataSource;
 
@@ -20,6 +19,8 @@ import javax.sql.DataSource;
 @EnableWebSecurity
 public class WebSecurityConfig3 extends WebSecurityConfigurerAdapter {
 
+    @Autowired
+    MyUserDetailsService myUserDetailsService;
 
     @Autowired
     PasswordEncoder passwordEncoder;
@@ -46,5 +47,11 @@ public class WebSecurityConfig3 extends WebSecurityConfigurerAdapter {
                 //当会话数达到最大数时，组织新会话建立
                 .maxSessionsPreventsLogin(true)
         ;
+    }
+
+    @Override
+    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+        //配置自定义的数据库模型
+        auth.userDetailsService(myUserDetailsService).passwordEncoder(passwordEncoder);
     }
 }

@@ -5,6 +5,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * 用户实体
@@ -92,4 +93,13 @@ public class SysUsers implements UserDetails {
         this.authorities = authorities;
     }
 
+    @Override
+    public int hashCode() {
+        return this.userName.hashCode();
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        return obj instanceof SysUsers && Objects.equals(this.userName, ((SysUsers) obj).userName);
+    }
 }

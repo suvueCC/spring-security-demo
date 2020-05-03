@@ -20,7 +20,7 @@ import java.util.Objects;
  * @author suvue
  * @date 2020/5/3
  */
-//@Component
+@Component
 public class MyAuthenticationProvider extends DaoAuthenticationProvider {
 
     public MyAuthenticationProvider(UserDetailsService userDetailsService, PasswordEncoder passwordEncoder){

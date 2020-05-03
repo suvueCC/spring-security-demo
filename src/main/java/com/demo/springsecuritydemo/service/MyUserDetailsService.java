@@ -24,7 +24,7 @@ import java.util.List;
  * @date 2020/5/2
  */
 @Primary
-//@Service
+@Service
 public class MyUserDetailsService implements UserDetailsService {
     @Autowired
     private UserMapper userMapper;

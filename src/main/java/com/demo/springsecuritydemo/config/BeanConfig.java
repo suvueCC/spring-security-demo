@@ -40,13 +40,16 @@ public class BeanConfig {
         }
         return manager;
     }*/
+/*
 
-    /**
+    */
+/**
      * 基于内存实现的多用户支持
      *
      * @author suvue
      * @date 2020/5/2
-     */
+     *//*
+
     @Bean
     public UserDetailsService userDetailsService(){
         final InMemoryUserDetailsManager manager = new InMemoryUserDetailsManager();
@@ -54,6 +57,7 @@ public class BeanConfig {
         manager.createUser(User.withUsername("admin").password("123").roles("USER").build());
         return manager;
     }
+*/
 
     /**
      * 由于5.x版本之后默认启用了委派密码编码器
