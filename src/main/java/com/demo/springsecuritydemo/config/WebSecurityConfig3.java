@@ -7,6 +7,7 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.web.csrf.CookieCsrfTokenRepository;
 
 import javax.sql.DataSource;
 
@@ -37,6 +38,10 @@ public class WebSecurityConfig3 extends WebSecurityConfigurerAdapter {
                 .antMatchers("/user/api/**").hasRole("USER")
                 .antMatchers("/app/api/**").permitAll()
                 .anyRequest().authenticated()
+                .and()
+                .csrf()
+                //预防csrf攻击
+                .csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse())
                 .and()
                 .formLogin()
                 .permitAll()
