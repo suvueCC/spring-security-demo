@@ -8,7 +8,6 @@ import org.springframework.security.authentication.AuthenticationDetailsSource;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
-import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
@@ -44,7 +43,7 @@ public class WebSecurityConfig1 extends WebSecurityConfigurerAdapter {
                 .antMatchers("/admin/api/**").hasRole("ADMIN")
                 .antMatchers("/user/api/**").hasRole("USER")
                 //开放captcha.jpg的访问权限
-                .antMatchers("/app/api/**","/captcha.jpg").permitAll()
+                .antMatchers("/app/api/**", "/captcha.jpg").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .csrf().disable()
